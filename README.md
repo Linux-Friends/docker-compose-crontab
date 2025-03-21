@@ -14,7 +14,7 @@
 - [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
 - [2️⃣ Architecture](#2%EF%B8%8F⃣-architecture)
 - [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
-- [4️⃣ Project File Structure Example](#4%EF%B8%8F⃣-main-flow)
+- [4️⃣ Project File Structure Example](#4%EF%B8%8F⃣-project-file-structure-example)
 - [5️⃣ Main Flow](#5%EF%B8%8F⃣-main-flow)
 - [6️⃣ Trouble Shooting](#6%EF%B8%8F⃣-trouble-shooting)
 
