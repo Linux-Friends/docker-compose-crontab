@@ -5,7 +5,7 @@
 <br>
 
 ## 📍 Contents
-- [1️⃣ Overview](#1%EF%B8%8F⃣-overview)
+- [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
 - [2️⃣ Contributors](#2%EF%B8%8F⃣-contributors)
 - [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
 - [4️⃣ Expectations](#4%EF%B8%8F⃣-expectations)
@@ -15,11 +15,10 @@
 
 <br>
 
-## 1️⃣ Overview
-
-### 🚩 **프로젝트 목표**
+## 1️⃣ Goals
 
 1. **Docker Compose로 Spring Boot + MySQL을 손쉽게 배포하고 관리**
+
 2. **MySQL 데이터를 주기적으로 자동 백업 및 정리**
 
 <br>
@@ -79,9 +78,12 @@
 
 - `db-backup/`
     - MySQL 데이터베이스 백업 `.sql` 파일이 저장되는 폴더
+  
     - `backup.sh` 실행 시, 새로운 `.sql` 파일이 생성됨
+    
 - `backup.sh`
     - MySQL DB를 백업하는 스크립트
+      
     - 특정 주기(`cron`)로 실행 가능 (예: 자정 시간마다)
 - `backup.log`
     - 백업 파일이 잘 수행되었는지 관리자가 확인하기 위한 로그 파일
@@ -196,18 +198,21 @@ volumes:
 1️⃣ **데이터 영속성 및 백업 설정**
 
 - `mysql-data:/var/lib/mysql` → **MySQL 데이터를 유지하는 Named Volume** (컨테이너 삭제 후에도 데이터 보존)
+  
 - `./db-backup:/backup` → **백업 파일을 호스트 디렉토리와 공유**하여 접근 가능
 - `healthcheck` → **DB가 정상 실행될 때까지 대기하여 안정적인 연결 보장**
 
 2️⃣ **Spring Boot 앱 컨테이너 (`app01`, `app02`)**
 
 - `depends_on: service_healthy` → **DB가 실행된 후 앱 실행**
+  
 - `ports` → **앱 별로 다른 포트 설정 (`8081:8080`, `8082:8080`)**
 - `INIT_MODE=create` → **초기 테이블 자동 생성, 이후 유지하여 데이터 보존**
 
 3️⃣ **네트워크 & 볼륨 설정**
 
 - `networks: bridge` → **Spring Boot와 MySQL이 같은 네트워크에서 통신 가능하도록 설정**
+  
 - `mysql-data` → **DB 데이터를 안전하게 유지하여 컨테이너 재시작 시에도 정보 보존**
 
 ### ✅ docker compose 실행
@@ -291,7 +296,7 @@ sudo chmod 744 /db-backup
 
 ![image](https://github.com/user-attachments/assets/602d1469-981f-4727-86d9-ea9170acdd5b)
 
-### 실행 결과 : `./db-backup` 폴더에 생긴 파일
+#### 실행 결과 : `./db-backup` 폴더에 생긴 파일
 
 ```sql
 -- MySQL dump 10.13  Distrib 8.0.41, for Linux (x86_64)
@@ -393,6 +398,7 @@ crontab -e
 **❗ 원인 :** 
 
 1. `application.properties`에서 `spring.jpa.hibernate.ddl-auto=none` 설정
+
 2. `spring.sql.init.mode=always` 설정
 
 **⇒ Spring Boot 앱 실행 시 `fisa.people` 테이블이 없다는 오류 발생**
@@ -403,22 +409,23 @@ SQLSyntaxErrorException: Table 'fisa.people' doesn't exist
 
 **💡 해결 방안 :**
 
-- Docker에서는 MySQL 컨테이너가 따로 실행되므로, **최초 한 번만 `create` 적용 후 `none`으로 변경하면 해결 가능함.**
-    1. **초기 실행 시 `ddl-auto=create` 적용**
-        - `docker-compose.yml`에서 환경 변수 `INIT_MODE: create` 추가
-    2. **그 이후 실행 시 `ddl-auto=none` 적용**
-        - `docker-compose.yml`에서 `INIT_MODE: none` 적용
-    3. **Dockerfile에서 ENTRYPOINT로 실행 시 `INIT_MODE` 값을 반영**
+- Docker에서는 MySQL 컨테이너가 따로 실행되므로, **최초 한 번만 `create` 적용 후 `none`으로 변경하면 해결 가능하다.**
+  
+  1. **초기 실행 시 `ddl-auto=create` 적용**
+      - `docker-compose.yml`에서 환경 변수 `INIT_MODE: create` 추가
+  2. **그 이후 실행 시 `ddl-auto=none` 적용**
+      - `docker-compose.yml`에서 `INIT_MODE: none` 적용
+  3. **Dockerfile에서 ENTRYPOINT로 실행 시 `INIT_MODE` 값을 반영**
         
-        ```docker
-        ENTRYPOINT ["sh", "-c", "java -jar app.jar --spring.jpa.hibernate.ddl-auto=${INIT_MODE}"]
-        ```
+     ```docker
+     ENTRYPOINT ["sh", "-c", "java -jar app.jar --spring.jpa.hibernate.ddl-auto=${INIT_MODE}"]
+     ```
         
-        - 실행 명령어가 가장 높은 우선순위를 가지므로 `application.properties`의 `ddl-auto=none` 설정을 덮어씌울 수 있음.
+      - 실행 명령어가 가장 높은 우선순위를 가지므로 `application.properties`의 `ddl-auto=none` 설정을 덮어씌울 수 있음.
 
 ### 2. 볼륨 내부 폴더에 대한 권한 문제
 
-**❗ 원인:** 
+**❗ 원인 :** 
 
 - 설계 초기에 영속성을 위한 .sql 파일과 백업 파일 모두 볼륨에 저장되도록 설정하였다.
 - 그러나, 볼륨은 root 권한이지만 cron은 실행하는 ubuntu의 권한을 가지므로 접근 권한이 없어 에러가 발생하였다.
@@ -433,7 +440,7 @@ SQLSyntaxErrorException: Table 'fisa.people' doesn't exist
 /home/ubuntu/06.dockerCompose/backup.sh: line 8: /var/lib/docker/volumes/06dockercompose_mysql-backup/_data/db_backup_2025-03-21_11-49-01.sql: Permission denied
 ```
 
-**🦴 해결방안:**
+**💡 해결 방안 :**
 
 - 볼륨 마운트가 아닌 호스트 마운트로 변경한다.
     
