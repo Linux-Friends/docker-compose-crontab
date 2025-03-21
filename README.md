@@ -4,9 +4,15 @@
 
 <br>
 
+|<img src="https://github.com/DoomchitYJ.png" width="220" />|<img src="https://github.com/imhaeunim.png" width="220" />|<img src="https://github.com/jinhyunpark929.png" width="220" />|<img src="https://github.com/letmeloveyou82.png" width="220" />|
+|:-:|:-:|:-:|:-:|
+|박영진<br/>[@DoomchitYJ](https://github.com/DoomchitYJ)|임하은<br/>[@imhaeunim](https://github.com/imhaeunim)|박진현<br/>[@jinhyunpark929](https://github.com/jinhyunpark929)|최윤정<br/>[@letmeloveyou82](https://github.com/letmeloveyou82)|
+
+<br>
+
 ## 📍 Contents
 - [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
-- [2️⃣ Contributors](#2%EF%B8%8F⃣-contributors)
+- [2️⃣ Architecture](#2%EF%B8%8F⃣-architecture)
 - [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
 - [4️⃣ Expectations](#4%EF%B8%8F⃣-expectations)
 - [5️⃣ How to do](#5%EF%B8%8F⃣-how-to-do)
@@ -17,20 +23,14 @@
 
 ## 1️⃣ Goals
 
-1. **Docker Compose로 Spring Boot + MySQL을 손쉽게 배포하고 관리**
 
-2. **MySQL 데이터를 주기적으로 자동 백업 및 정리**
 
 <br>
 
-## 2️⃣ Contributors
+## 2️⃣ Architecture
 <br>
 
-|<img src="https://github.com/DoomchitYJ.png" width="220" />|<img src="https://github.com/imhaeunim.png" width="220" />|<img src="https://github.com/jinhyunpark929.png" width="220" />|<img src="https://github.com/letmeloveyou82.png" width="220" />|
-|:-:|:-:|:-:|:-:|
-|박영진<br/>[@DoomchitYJ](https://github.com/DoomchitYJ)|임하은<br/>[@imhaeunim](https://github.com/imhaeunim)|박진현<br/>[@jinhyunpark929](https://github.com/jinhyunpark929)|최윤정<br/>[@letmeloveyou82](https://github.com/letmeloveyou82)|
-
-<br>
+![docker-compose](https://github.com/user-attachments/assets/93a9b7dd-957b-4e4a-85f3-75de29aaded5)
 
 
 ## 3️⃣ Skills
