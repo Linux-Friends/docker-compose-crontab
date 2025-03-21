@@ -14,10 +14,8 @@
 - [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
 - [2️⃣ Architecture](#2%EF%B8%8F⃣-architecture)
 - [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
-- [4️⃣ Expectations](#4%EF%B8%8F⃣-expectations)
-- [5️⃣ How to do](#5%EF%B8%8F⃣-how-to-do)
-- [6️⃣ Trouble Shooting](#6%EF%B8%8F%E2%83%A3-trouble-shooting)
-- [7️⃣ Retrospective](#7%EF%B8%8F%E2%83%A3-retrospective)
+- [4️⃣ Main Flow](#4%EF%B8%8F⃣-main-flow)
+- [5️⃣ Trouble Shooting](#5%EF%B8%8F⃣-trouble-shooting)
 
 <br>
 
