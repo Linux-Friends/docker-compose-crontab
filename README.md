@@ -14,8 +14,9 @@
 - [1️⃣ Goals](#1%EF%B8%8F⃣-goals)
 - [2️⃣ Architecture](#2%EF%B8%8F⃣-architecture)
 - [3️⃣ Skills](#3%EF%B8%8F⃣-skills)
-- [4️⃣ Main Flow](#4%EF%B8%8F⃣-main-flow)
-- [5️⃣ Trouble Shooting](#5%EF%B8%8F⃣-trouble-shooting)
+- [4️⃣ Project File Structure Example](#4%EF%B8%8F⃣-main-flow)
+- [5️⃣ Main Flow](#5%EF%B8%8F⃣-main-flow)
+- [6️⃣ Trouble Shooting](#6%EF%B8%8F⃣-trouble-shooting)
 
 <br>
 
@@ -77,7 +78,7 @@
 <br>
 
 
-## 📁 **Project File Structure (`ex.. 07.dockerComposeMission`)**
+## 4️⃣ **Project File Structure Example**
 
 ```
 07.dockerComposeMission/
@@ -112,7 +113,7 @@
 - `step06_SpringDataJPA-0.0.1-SNAPSHOT.jar`
     - Spring Boot 애플리케이션 실행 JAR 파일
 
-## 4️⃣ Main Flow
+## 5️⃣ Main Flow
 
 ### 📌 docker-compose
 
@@ -407,7 +408,7 @@ crontab -e
 ```
 
 
-## 5️⃣ Trouble Shooting
+## 6️⃣ Trouble Shooting
 
 ### **1.** `fisa.people` 테이블이 없어 실행 중 SQL 에러 발생
 
