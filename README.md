@@ -14,7 +14,6 @@
 - [7️⃣ Retrospective](#7%EF%B8%8F%E2%83%A3-retrospective)
 
 <br>
-<br>
 
 ## 1️⃣ Overview
 
@@ -43,7 +42,7 @@
 <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
 <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
 <img src="https://img.shields.io/badge/jmeter-D22128?style=for-the-badge&logo=apachejmeter&logoColor=white">
-
+docker, docker-compose, cron, ubuntu, mysql
 </div>
 
 <br>
@@ -331,7 +330,7 @@ CREATE TABLE `people` (
 
 LOCK TABLES `people` WRITE;
 /*!40000 ALTER TABLE `people` DISABLE KEYS */;
-INSERT INTO `people` VALUES (26,1,'윤도비'),(30,2,'연아'),(10,3,'연아'),(30,4,'이마크'),(26,5,'재현'),(30,6,'재현'),(100,7,'바부'),(26,8,'윤도비'),(30,9,'연아'),(10,10,'연아'),(30,11,'이마크'),(26,12,'재현'),(30,13,'재현'),(100,14,'바부');
+INSERT INTO `people` VALUES (26,1,'김연아');
 /*!40000 ALTER TABLE `people` ENABLE KEYS */;
 UNLOCK TABLES;
 
